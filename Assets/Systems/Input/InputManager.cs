@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XInput;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
     private PlayerActions playerActions;
     private InputSpin inputSpin;
     public Vector2 movementInput;
+    public bool jumpInput;
 
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class InputManager : MonoBehaviour
         {
             playerActions = new PlayerActions();
             playerActions.Gameplay.Move.performed += i => movementInput = i.ReadValue<Vector2>();
+            playerActions.Gameplay.Jump.performed += i => jumpInput = i.ReadValueAsButton();
         }
 
         playerActions.Enable();
@@ -29,9 +32,16 @@ public class InputManager : MonoBehaviour
 
     public Vector2 ProcessMovementInput()
     {
-        var xInput = movementInput.x;
-        var yInput = movementInput.y;
-        Vector2 processedInput = new Vector2(xInput, yInput);
-        return processedInput;
+        if(movementInput != null)
+        {
+            var xInput = movementInput.x;
+            var yInput = movementInput.y;
+            Vector2 processedInput = new Vector2(xInput, yInput);
+            return processedInput;
+        }
+        else
+        {
+            return Vector2.zero;
+        }
     }
 }

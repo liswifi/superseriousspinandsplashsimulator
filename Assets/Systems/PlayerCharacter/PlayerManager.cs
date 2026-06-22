@@ -15,8 +15,28 @@ public class PlayerManager : MonoBehaviour
 
     public void OnMove()
     {
-        playerMovement.ProcessMovement();
-        playerMovement.ProcessRotation();
+        if (inputManager != null && playerMovement != null)
+        {
+            playerMovement.ProcessMovement();
+            playerMovement.ProcessRotation();
+        }
+    }
+
+    public void OnJump()
+    {
+        if (!inputManager.jumpInput)
+        {
+            playerMovement.isJumping = true;
+        }
+        else
+        {
+            playerMovement.isJumping = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        playerMovement.ProcessGravity();
     }
 
 }
