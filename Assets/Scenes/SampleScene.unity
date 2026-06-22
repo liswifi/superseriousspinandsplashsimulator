@@ -494,6 +494,34 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 8096513976953524735, guid: b93a24589005f8144a91d55953b77d90, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096513976953524735, guid: b93a24589005f8144a91d55953b77d90, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: 0c55a5c5-e8b2-44a6-8c7e-41fad51bf997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096513976953524735, guid: b93a24589005f8144a91d55953b77d90, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: 021ca5fb-3190-45bf-85bb-707a01e79804
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096513976953524735, guid: b93a24589005f8144a91d55953b77d90, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: 9c6bb409-f200-4337-a1e7-ea5a2b4f7bee
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096513976953524735, guid: b93a24589005f8144a91d55953b77d90, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: MainMenu/Confirm[/Keyboard/anyKey,/Mouse/leftButton,/Pen/tip,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID/buttonWest]
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096513976953524735, guid: b93a24589005f8144a91d55953b77d90, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: MainMenu/Exit[/Keyboard/escape,/DualShock4GamepadHID/start,/DualShock4GamepadHID/select,/Keyboard/end]
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096513976953524735, guid: b93a24589005f8144a91d55953b77d90, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
+      value: GameplayMenu/New action
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

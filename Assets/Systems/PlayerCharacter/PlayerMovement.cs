@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5;
     float rotSpeed = 25;
 
-    private void Awake()
+    private void Start()
     {
         inputManager = GetComponent<InputManager>();
         rb = GetComponent<Rigidbody>();

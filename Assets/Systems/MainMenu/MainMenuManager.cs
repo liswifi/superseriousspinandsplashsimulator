@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
     private PlayerActions playerActions;
-    private DialogueManager dialogueManager;
-    private bool gameHasStarted = false;
+    [SerializeField] private DialogueManager dialogueManager;
+    private bool introHasStarted = false;
 
-    private void Awake()
+    private void Start()
     {
         if (playerActions == null)
         {
@@ -22,26 +24,40 @@ public class MainMenuManager : MonoBehaviour
         playerActions.Disable();
     }
 
-    public void OnConfirm()
+    public void OnConfirm(InputAction.CallbackContext context)
     {
-        if (!gameHasStarted)
+        if (context.performed)
         {
-            gameHasStarted = true;
-            StartGame();
-        }
-        else
-        {
-            dialogueManager.DialogueToTextbox();
+            if (!introHasStarted)
+            {
+                StartGame();
+            }
+            else
+            {
+                if (!dialogueManager.DialogueToTextbox())
+                {
+                    dialogueManager.DialogueToTextbox();
+                }
+                else
+                {
+                    SceneManager.LoadScene(1);
+                }
+            }
         }
     }
 
-    public void OnExit()
+    public void OnExit(InputAction.CallbackContext context)
     {
-        Application.Quit();
+        if (context.performed)
+        {
+            Application.Quit();
+        }
     }
 
     private void StartGame()
     {
+        introHasStarted = true;
         Debug.Log("Started game!");
+        dialogueManager.DialogueToTextbox();
     }
 }
