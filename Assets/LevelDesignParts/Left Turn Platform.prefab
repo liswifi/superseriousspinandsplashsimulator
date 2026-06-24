@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 7004032532021154926}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.08, y: 2.51, z: -3.18}
+  m_LocalPosition: {x: 0, y: 2.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -400,6 +400,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 265ccec3d2480bc49964ab4cb5fc6fa6, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 981f680afd6289b488158c9159793d48, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3286260823368677995, guid: 981f680afd6289b488158c9159793d48, type: 3}
     - target: {fileID: 919132149155446097, guid: 981f680afd6289b488158c9159793d48, type: 3}
       propertyPath: m_Name
       value: L_Platform_2,5x7,5
