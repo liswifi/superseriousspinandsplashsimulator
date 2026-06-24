@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Colour:
-        m_Texture: {fileID: 2800000, guid: 76740539a5138c944b226ca32cb8f182, type: 3}
+        m_Texture: {fileID: 2800000, guid: e53f27b53f46e2c49b95512bb7541044, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 446d4090ee17c454c970b9a124b51f77, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Packed_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 7dba019964c0d0e4daeff8f5b8dc98c2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -86,6 +86,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Saturation: 1.2
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
