@@ -6,14 +6,17 @@ using UnityEngine;
 public class InputSpin : MonoBehaviour
 {
     InputManager inputManager;
+    Rigidbody rb;
     private float[] angleValues = new float[8] { 0.0F, 45.0F, 90.0F, 135.0F, 179.0F, -135.0F, -90.0F, -45.0F };
     private int currentQuad;
     public float angle;
+    public float angleVel;
     private Vector2 input;
     
-    void Awake()
+    void OnEnable()
     {
         inputManager = GetComponent<InputManager>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -21,13 +24,20 @@ public class InputSpin : MonoBehaviour
         ProcessInput();
     }
 
-    float ProcessInput() // DEBUG
+    float ProcessInput()
     {
         input = inputManager.movementInput;
-        angle = Mathf.Atan2(input.x, input.y);
-        angle = angle * Mathf.Rad2Deg;
+        var angleA = Mathf.Atan2(input.y, input.x);
+        var angleB = Mathf.Atan2(input.y, input.x);
+        //angle = angle * Mathf.Rad2Deg;
 
-        return angle;
+        var angleDistance = angleB - angleA;
+
+        angleVel = angleDistance / Time.deltaTime;
+
+        //angleVel = rb.angularVelocity;
+
+        return angleVel;
     }
 
     public bool StartInput()
@@ -45,7 +55,7 @@ public class InputSpin : MonoBehaviour
                 _hasStarted = false;
             }
             CheckAngle();
-            Debug.Log("is checking input");
+            //Debug.Log("is checking input");
         }
 
         return angleValues.Contains(angle);
@@ -58,7 +68,7 @@ public class InputSpin : MonoBehaviour
             if (angle == angleValues[i])
             {
                 currentQuad = i;
-                Debug.Log("Current quad is: " + i);
+                //Debug.Log("Current quad is: " + i);
             }
         }
     }

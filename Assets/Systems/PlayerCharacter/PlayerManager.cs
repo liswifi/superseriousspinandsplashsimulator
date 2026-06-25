@@ -13,30 +13,12 @@ public class PlayerManager : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
     }
 
-    public void OnMove()
-    {
-        if (inputManager != null && playerMovement != null)
-        {
-            playerMovement.ProcessMovement();
-            playerMovement.ProcessRotation();
-        }
-    }
-
-    public void OnJump()
-    {
-        if (!inputManager.jumpInput)
-        {
-            playerMovement.isJumping = true;
-        }
-        else
-        {
-            playerMovement.isJumping = false;
-        }
-    }
-
     private void FixedUpdate()
     {
+        playerMovement.ProcessMovement();
+        playerMovement.ProcessRotation();
         playerMovement.ProcessGravity();
+        playerMovement.ProcessJumping();
     }
 
 }
