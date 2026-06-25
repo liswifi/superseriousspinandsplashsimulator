@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Static_Course_2.5x2.5
+  m_Name: Static_Course_TurnLarge
   m_Shader: {fileID: -6465566751694194690, guid: 1f75a914b6de1384a93ab173c3b69a91, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Colour:
-        m_Texture: {fileID: 2800000, guid: 76740539a5138c944b226ca32cb8f182, type: 3}
+        m_Texture: {fileID: 2800000, guid: 942463f4eed3eb341b06119d8bc6477c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0a92a4d8f5f9d43438499749b9d6303d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Packed_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b5eed287bb1bfce43ae2f2e7218b67c1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -84,10 +84,12 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
+    - _Normal_Strength: -3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Saturation: 1
+    - _Saturation: 1.2
     - _SmoothnessTextureChannel: 0
+    - _Smothness_Mult: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Static_Course_10x5
+  m_Name: Static_Course_TurnSmall
   m_Shader: {fileID: -6465566751694194690, guid: 1f75a914b6de1384a93ab173c3b69a91, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Colour:
-        m_Texture: {fileID: 2800000, guid: 76740539a5138c944b226ca32cb8f182, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6faa8997827fae74cbd3505140de07f4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -56,7 +56,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3c225d1988b48064b81325c8e3cc7efb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -64,7 +64,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Packed_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d6a347d62fecc0849995f033243e62ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -75,7 +75,6 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _Boolean: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -85,19 +84,19 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
+    - _Normal_Strength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Saturation: 1
+    - _Saturation: 1.2
     - _SmoothnessTextureChannel: 0
+    - _Smothness_Mult: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UV_Set_BaseColour: 0
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _UV_Set_BaseColour: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1034218002363483456
 MonoBehaviour:
