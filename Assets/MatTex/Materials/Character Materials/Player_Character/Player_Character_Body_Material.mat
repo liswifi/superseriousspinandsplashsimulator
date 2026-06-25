@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_Character_Body_Material
-  m_Shader: {fileID: -6465566751694194690, guid: 13ba0f9056b900b4c9a21839b218d136, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 39cb7aa80e9e8164f96a52b68f4bc343, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base_Colour:
-        m_Texture: {fileID: 2800000, guid: 76740539a5138c944b226ca32cb8f182, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1ef2573e1339b48418e0d87efe2a1da8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -69,7 +69,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 9cba7fe3eec17034594327056740a2fb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -77,7 +77,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Packed_Map:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ea3c2c85ad46c714fa043ec828c8d87f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
@@ -97,9 +97,12 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
+    - _Normal_Strength: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Saturation: 1.2
     - _SmoothnessTextureChannel: 0
+    - _Smothness_Mult: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
