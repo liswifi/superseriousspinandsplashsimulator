@@ -9,15 +9,18 @@ public class PlayerMovement : MonoBehaviour
     InputManager inputManager;
     Rigidbody rb;
     Animator animator;
+    ParticleSystem particleSystem;
 
-    [Header("Movement Mechanics")]
-    public bool isGrounded = false;
-    public Vector3 moveDir;
+    [Header("Movement")]
+    public bool isMoving = false;
+    public bool onGround = false;
+    private Vector3 moveDir;
+    private Vector3 targetDir;
     public float moveSpeed = 5;
     float rotSpeed = 25;
     public LayerMask groundLayer;
 
-    [Header("Jumping Mechanics")]
+    [Header("Physics")]
     public bool isJumping = false;
     public float airTime;
     public float jumpVelocity;
@@ -30,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        particleSystem = GetComponentInChildren<ParticleSystem>();
     }
 
     public void ProcessMovement()
@@ -45,8 +49,16 @@ public class PlayerMovement : MonoBehaviour
             moveVel.y = rb.velocity.y;
             rb.velocity = moveVel;
 
-            bool moveAnim = moveDir != Vector3.zero ? true : false;
-            animator.SetBool("isMoving", moveAnim);
+            isMoving = moveDir != Vector3.zero;
+            animator.SetBool("isMoving", isMoving);
+
+            if (isMoving && onGround) {
+                particleSystem.Play();
+            }
+            else
+            {
+                particleSystem.Stop();
+            }
         }
     }
 
@@ -57,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        Vector3 targetDir = Vector3.zero;
+        targetDir = Vector3.zero;
 
         targetDir = Camera.main.transform.forward * inputManager.ProcessMovementInput().x;
         targetDir = targetDir + Camera.main.transform.right * -inputManager.ProcessMovementInput().y;
@@ -73,13 +85,17 @@ public class PlayerMovement : MonoBehaviour
         Quaternion playerRot = Quaternion.Slerp(transform.rotation, targetRot, rotSpeed * Time.deltaTime);
 
         transform.rotation = playerRot;
+
+        float angularSpeed = Quaternion.Angle(playerRot, targetRot) / Time.deltaTime;
+        rb.angularVelocity = new Vector3(0.0F, angularSpeed, 0.0F);
+        bool isSpinning = rb.angularVelocity.z > 5.0F || rb.angularVelocity.z < 5.0F;
     }
 
     public void ProcessGravity()
     {
         RaycastHit hit;
 
-        if (!isGrounded)
+        if (!onGround)
         {
             airTime = airTime + Time.deltaTime;
             if (inputManager.jumpInput)
@@ -93,27 +109,27 @@ public class PlayerMovement : MonoBehaviour
                     inputManager.jumpInput = false;
                 }
             }
-        }
-
-        if(Physics.Raycast(transform.position, -Vector3.up, out hit, 1.2F, groundLayer))
-        {
-            if (!isGrounded)
-            {
-                // Land anim
-            }
-
-            airTime = 0;
-            isGrounded = true;
+            animator.SetBool("isFalling", true);
         }
         else
         {
-            isGrounded = false;
+            animator.SetBool("isFalling", false);
+        }
+
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit, 1.2F, groundLayer))
+        {
+            airTime = 0;
+            onGround = true;
+        }
+        else
+        {
+            onGround = false;
         }
     }
 
     public void ProcessJumping()
     {
-        if (isGrounded && inputManager.jumpInput)
+        if (onGround && inputManager.jumpInput)
         {
             isJumping = true;
             float jumpVel = Mathf.Sqrt(-2 * gravity * jumpHeight);
@@ -122,13 +138,13 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = playerVel;
             isJumping = false;
         }
-        if (!isGrounded && !inputManager.jumpInput)
+        if (!onGround && !inputManager.jumpInput)
         {
             rb.AddForce(transform.forward * jumpVelocity);
-            rb.AddForce(-Vector3.up * dropVelocity * airTime * 50);
+            rb.AddForce(50 * airTime * dropVelocity * -Vector3.up);
             isJumping = false;
         }
-        bool jumpAnim = rb.velocity.y > 1.0F ? true : false;
+        bool jumpAnim = rb.velocity.y > 1.0F || rb.velocity.y < -1.0F;
         animator.SetBool("isJumping", jumpAnim);
     }
 }
