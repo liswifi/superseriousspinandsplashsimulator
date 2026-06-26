@@ -9,6 +9,8 @@ public class MainMenuManager : MonoBehaviour
     private PlayerActions playerActions;
     [SerializeField] private DialogueManager dialogueManager;
     private bool introHasStarted = false;
+    public bool canInput = false;
+    public Animator animator;
 
     private void Start()
     {
@@ -26,21 +28,24 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnConfirm(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (canInput)
         {
-            if (!introHasStarted)
+            if (context.performed)
             {
-                StartGame();
-            }
-            else
-            {
-                if (!dialogueManager.DialogueToTextbox())
+                if (!introHasStarted)
                 {
-                    dialogueManager.DialogueToTextbox();
+                    StartGame();
                 }
                 else
                 {
-                    SceneManager.LoadScene(1);
+                    if (!dialogueManager.DialogueToTextbox())
+                    {
+                        dialogueManager.DialogueToTextbox();
+                    }
+                    else
+                    {
+                        animator.SetBool("dialogueStarted", false);
+                    }
                 }
             }
         }
@@ -54,10 +59,23 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    public void EnableInputs()
+    {
+        canInput = true;
+    }
+
     private void StartGame()
     {
-        introHasStarted = true;
-        Debug.Log("Started game!");
-        dialogueManager.DialogueToTextbox();
+        if(animator != null)
+        {
+            introHasStarted = true;
+            animator.SetBool("dialogueStarted", introHasStarted);
+            dialogueManager.DialogueToTextbox();
+        }
+    }
+
+    public void EnterGameplay()
+    {
+        SceneManager.LoadScene(1);
     }
 }
