@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     InputManager inputManager;
     PlayerMovement playerMovement;
+    public ParticleSystem splashParticles;
 
     void Start()
     {
@@ -21,4 +22,10 @@ public class PlayerManager : MonoBehaviour
         playerMovement.ProcessJumping();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        // Go to gameManager and trigger transition UI, restart level
+        Instantiate(splashParticles, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
+    }
 }

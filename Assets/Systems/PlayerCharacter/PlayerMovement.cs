@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     InputManager inputManager;
     Rigidbody rb;
     Animator animator;
-    ParticleSystem particleSystem;
+    ParticleSystem runParticles;
+    private PlayerSpin playerSpinManager;
 
     [Header("Movement")]
     public bool isMoving = false;
@@ -33,7 +34,8 @@ public class PlayerMovement : MonoBehaviour
         inputManager = GetComponent<InputManager>();
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
-        particleSystem = GetComponentInChildren<ParticleSystem>();
+        runParticles = GetComponentInChildren<ParticleSystem>();
+        playerSpinManager = GetComponent<PlayerSpin>();
     }
 
     public void ProcessMovement()
@@ -53,11 +55,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isMoving", isMoving);
 
             if (isMoving && onGround) {
-                particleSystem.Play();
+                runParticles.Play();
             }
             else
             {
-                particleSystem.Stop();
+                runParticles.Stop();
             }
         }
     }
@@ -89,6 +91,8 @@ public class PlayerMovement : MonoBehaviour
         float angularSpeed = Quaternion.Angle(playerRot, targetRot) / Time.deltaTime;
         rb.angularVelocity = new Vector3(0.0F, angularSpeed, 0.0F);
         bool isSpinning = rb.angularVelocity.z > 5.0F || rb.angularVelocity.z < 5.0F;
+
+        playerSpinManager.CheckSpin(rb.angularVelocity.y);
     }
 
     public void ProcessGravity()
@@ -102,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(transform.forward * jumpVelocity);
                 rb.AddForce(-Vector3.up * dropVelocity * airTime);
-                if(airTime > 1.0F)
+                if (airTime > 1.0F)
                 {
                     airTime = 0;
                     isJumping = false;
@@ -111,20 +115,16 @@ public class PlayerMovement : MonoBehaviour
             }
             animator.SetBool("isFalling", true);
         }
-        else
-        {
-            animator.SetBool("isFalling", false);
-        }
+        else { animator.SetBool("isFalling", false); }
 
+        //var offsetPos = transform.position - Vector3.up;
+        //Physics.SphereCast(transform.position, 0.3F, -Vector3.up, out hit, Mathf.Infinity, groundLayer);
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, 1.2F, groundLayer))
         {
             airTime = 0;
             onGround = true;
         }
-        else
-        {
-            onGround = false;
-        }
+        else { onGround = false; }
     }
 
     public void ProcessJumping()

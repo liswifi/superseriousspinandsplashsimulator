@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     GameObject playerRef;
     public Vector3 playerOffset;
+    [Range(0.001F, 0.1F)] public float cameraDampening;
 
     void Awake()
     {
@@ -16,7 +17,7 @@ public class CameraFollow : MonoBehaviour
     {
         if (playerRef != null)
         {
-            transform.position = playerRef.transform.position + playerOffset * Time.deltaTime;
+            transform.position = Vector3.Lerp(transform.position, playerRef.transform.position + playerOffset, Time.deltaTime + cameraDampening);
         }
     }
 }

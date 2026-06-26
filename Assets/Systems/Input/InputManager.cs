@@ -8,7 +8,6 @@ public class InputManager : MonoBehaviour
 {
     [Header("Component Refs")]
     private PlayerActions playerActions;
-    private InputSpin inputSpin;
     private PlayerMovement playerMovement;
     [Header("Input Values")]
     public Vector2 movementInput;
@@ -26,7 +25,6 @@ public class InputManager : MonoBehaviour
 
         playerActions.Enable();
 
-        inputSpin = GetComponent<InputSpin>();
         playerMovement = GetComponent<PlayerMovement>();
     }
 
