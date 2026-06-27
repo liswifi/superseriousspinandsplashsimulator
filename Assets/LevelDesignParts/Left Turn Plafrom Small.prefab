@@ -324,6 +324,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 919540256888470248}
+  - component: {fileID: 5535075028325604481}
   m_Layer: 0
   m_Name: Left Turn Plafrom Small
   m_TagString: Untagged
@@ -353,6 +354,44 @@ Transform:
   - {fileID: 6614108047625063644}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &5535075028325604481
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5506236033732781153}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: -3.5269809, z: 0}
+  m_Size: 13.033963
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7509468548239982880}
+    - renderer: {fileID: 2067391319033141334}
+    - renderer: {fileID: 5980759140794847791}
+    - renderer: {fileID: 7485468587594424096}
+    - renderer: {fileID: 5030354039737347059}
+    - renderer: {fileID: 7839096491756652401}
+    - renderer: {fileID: 7346051111367980750}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7509468548239982880}
+    - renderer: {fileID: 2067391319033141334}
+    - renderer: {fileID: 5980759140794847791}
+    - renderer: {fileID: 7485468587594424096}
+    - renderer: {fileID: 5030354039737347059}
+    - renderer: {fileID: 7839096491756652401}
+    - renderer: {fileID: 7346051111367980750}
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &7837893238647701273
 GameObject:
   m_ObjectHideFlags: 0
