@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 5751671298430399978}
   - component: {fileID: 7509468548239982880}
   - component: {fileID: 2370589697922777293}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: L_Platform_2,5x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

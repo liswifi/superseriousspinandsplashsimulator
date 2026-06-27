@@ -50,19 +50,20 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.35
+  - screenRelativeHeight: 0.43365604
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 7942855170485200704}
     - renderer: {fileID: 1571582441022584558}
     - renderer: {fileID: 661663029583487458}
     - renderer: {fileID: 6091124482642404730}
-  - screenRelativeHeight: 0.3
+  - screenRelativeHeight: 0.15655625
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1571582441022584558}
     - renderer: {fileID: 661663029583487458}
     - renderer: {fileID: 6091124482642404730}
+    - renderer: {fileID: 7942855170485200704}
   - screenRelativeHeight: 0.1
     fadeTransitionWidth: 0
     renderers: []
@@ -411,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform_5x5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a08090994846b0140a2ca9bac0ade6e4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 71d41a4e902d8974baa920198191ba38, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -443,7 +448,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
