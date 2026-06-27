@@ -192,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a725e05e37b4dbe45be62e6b7d4b6613, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a725e05e37b4dbe45be62e6b7d4b6613, type: 3}
       propertyPath: m_LocalPosition.z
@@ -291,7 +291,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.6
+  - screenRelativeHeight: 0.35
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 7918349236576541585}
@@ -314,7 +314,6 @@ LODGroup:
   - screenRelativeHeight: 0.3
     fadeTransitionWidth: 0
     renderers:
-    - renderer: {fileID: 7918349236576541585}
     - renderer: {fileID: 3510520912832412465}
     - renderer: {fileID: 6680086046525493576}
     - renderer: {fileID: 6831955104627962006}
@@ -325,12 +324,11 @@ LODGroup:
     - renderer: {fileID: 531554549027985172}
     - renderer: {fileID: 5353077203390416832}
     - renderer: {fileID: 7738302352817978733}
-    - renderer: {fileID: 1829202490992613944}
     - renderer: {fileID: 6210658009403910962}
     - renderer: {fileID: 4055678785331454101}
     - renderer: {fileID: 2616082806933702562}
     - renderer: {fileID: 6073988827939228396}
-    - renderer: {fileID: 9001571496388175262}
+    - renderer: {fileID: 1829202490992613944}
   - screenRelativeHeight: 0.1
     fadeTransitionWidth: 0
     renderers: []
