@@ -5034,6 +5034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613a782a2ddc10a4db9b4e644127a07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerVis: {fileID: 3290237204021560148}
   splashParticles: {fileID: 8480820836008728059, guid: fdd1e72ac9570004e96c4f10ba5dc2b0, type: 3}
 --- !u!114 &428539464928172799
 MonoBehaviour:
@@ -5047,6 +5048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fdac29b9c098d4282b38849f75ec13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   isMoving: 0
   onGround: 0
   moveSpeed: 5

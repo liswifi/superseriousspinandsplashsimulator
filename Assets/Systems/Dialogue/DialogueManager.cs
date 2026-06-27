@@ -9,7 +9,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI guiText;
     public string textRaw;
     public List<string> textList;
-    private int textIndex = 0;
+    public int textIndex = 0;
 
     [SerializeField] GameObject textBox;
     [SerializeField] GameObject iconboxNext;
@@ -44,19 +44,43 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void ProcessDialogueText()
+    public void ProcessDialogueText() // Split string by whitespace instead of characters
     {
-        int _characterLength = 140;
-        int _arraySize = Mathf.FloorToInt((float)textRaw.Length / (float)_characterLength);
-        int _startIndex = 0;
-        string[] _textToRead = new string[_arraySize];
+        //int _characterLength = 140;
+        //int _arraySize = Mathf.FloorToInt((float)textRaw.Length / (float)_characterLength);
+        //int _startIndex = 0;
+        //string[] _textToRead = new string[_arraySize];
 
-        for (int i = 0; i < _arraySize; i++)
+        //for (int i = 0; i < _arraySize; i++)
+        //{
+        //    textList.Add(textRaw.Substring(_startIndex, _characterLength)); 
+        //    _startIndex = _startIndex + _characterLength;
+        //}
+
+
+        int _wordMax = 24;
+        string[] _separatedDialogue = textRaw.Split(' ');
+        List<string> _dialogueBlocks = new();
+        string _dialogueBlockBuffer = "";
+        int _currentWord = 0;
+        int _currentBlock = 0;
+
+        foreach (string word in _separatedDialogue)
         {
-            textList.Add(textRaw.Substring(_startIndex, _characterLength)); 
-            _startIndex = _startIndex + _characterLength;
+            _dialogueBlockBuffer = _dialogueBlockBuffer + " " + word;
+            _currentWord++;
+            if(_currentWord > _wordMax)
+            {
+                _dialogueBlocks.Add(_dialogueBlockBuffer);
+                _dialogueBlockBuffer = "";
+                _currentWord = 0;
+                _currentBlock++;
+            }
         }
+        _dialogueBlocks.Add(_dialogueBlockBuffer);
 
-        textList.Add(textRaw.Substring(_startIndex, textRaw.Length - (_arraySize) * _characterLength));
+        textList = _dialogueBlocks;
+
+        //textList.Add(textRaw.Substring(_startIndex, textRaw.Length - (_arraySize) * _characterLength));
     }
 }

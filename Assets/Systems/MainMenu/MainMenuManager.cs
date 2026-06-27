@@ -40,7 +40,7 @@ public class MainMenuManager : MonoBehaviour
                 {
                     if (!dialogueManager.DialogueToTextbox())
                     {
-                        dialogueManager.DialogueToTextbox();
+
                     }
                     else
                     {

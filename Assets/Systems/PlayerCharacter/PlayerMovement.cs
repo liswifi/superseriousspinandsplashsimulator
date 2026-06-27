@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Component Refs")]
     InputManager inputManager;
-    Rigidbody rb;
+    public Rigidbody rb;
     Animator animator;
     ParticleSystem runParticles;
     private PlayerSpin playerSpinManager;
@@ -117,14 +117,19 @@ public class PlayerMovement : MonoBehaviour
         }
         else { animator.SetBool("isFalling", false); }
 
-        //var offsetPos = transform.position - Vector3.up;
+        //var offsetPos = transform.position - Vector3.up; NEED TO CHANGE RAYCAST TO SPHERECAST
         //Physics.SphereCast(transform.position, 0.3F, -Vector3.up, out hit, Mathf.Infinity, groundLayer);
         if (Physics.Raycast(transform.position, -Vector3.up, out hit, 1.2F, groundLayer))
         {
             airTime = 0;
             onGround = true;
+            if(hit.rigidbody != null)transform.parent = hit.rigidbody.transform;
         }
-        else { onGround = false; }
+        else
+        { 
+            onGround = false;
+            transform.parent = null;
+        }
     }
 
     public void ProcessJumping()

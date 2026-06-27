@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    GameObject playerRef;
+    public GameObject playerRef;
     public Vector3 playerOffset;
     [Range(0.001F, 0.1F)] public float cameraDampening;
 
