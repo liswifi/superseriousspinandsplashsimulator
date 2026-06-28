@@ -14,13 +14,15 @@ public class GameManager : MonoBehaviour
     public float timerValue;
     string timerTime = "";
     bool winGame;
+    float numberOfDeaths = 0;
 
     public IEnumerator RestartGame()
     {
         if (!hasDied)
         {
             hasDied = true;
-            yield return new WaitForSeconds(5.0F);
+            numberOfDeaths++;
+            yield return new WaitForSeconds(4.0F/numberOfDeaths);
             var player = Instantiate(playerCharacter, spawnPoint, Quaternion.identity);
             FindFirstObjectByType<CameraFollow>().playerRef = player;
         }
@@ -40,8 +42,7 @@ public class GameManager : MonoBehaviour
         if (!winGame)
         {
             timerValue += Time.deltaTime;
-            timerValue = Mathf.Ceil(timerValue);
-            timerText.text = timerValue.ToString();
+            timerText.text = timerValue.ToString("#.0");
         }
     }
 }

@@ -47,11 +47,20 @@ public class PlayerMovement : MonoBehaviour
             moveDir.Normalize();
             moveDir.y = 0;
 
-            Vector3 moveVel = moveDir * moveSpeed;
-            moveVel.y = rb.velocity.y;
-            rb.velocity = moveVel;
+            if (onGround)
+            {
+                Vector3 moveVel = moveDir * moveSpeed;
+                moveVel.y = rb.velocity.y;
+                rb.velocity = moveVel;
+            }
+            else
+            {
+                Vector3 moveVel = moveDir * (moveSpeed * 0.75F);
+                moveVel.y = rb.velocity.y;
+                rb.velocity = moveVel;
+            }
 
-            isMoving = moveDir != Vector3.zero;
+                isMoving = moveDir != Vector3.zero;
             animator.SetBool("isMoving", isMoving);
 
             if (isMoving && onGround) {
@@ -106,7 +115,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(transform.forward * jumpVelocity);
                 rb.AddForce(-Vector3.up * dropVelocity * airTime);
-                if (airTime > 1.0F)
+                if (airTime > 0.5F)
                 {
                     airTime = 0;
                     isJumping = false;
